@@ -12,8 +12,8 @@ class BookMarkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        BookMarksTB.delegate = self
-        BookMarksTB.dataSource = self
+//        BookMarksTB.delegate = self
+//        BookMarksTB.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -30,14 +30,14 @@ class BookMarkViewController: UIViewController {
 
 }
 
-extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-    
-    
-}
+//extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//    }
+//
+//
+//}
