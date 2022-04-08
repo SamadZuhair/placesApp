@@ -8,7 +8,10 @@
 import UIKit
 
 class PlacesCiel: UITableViewCell {
-
+    @IBOutlet weak var Name: UILabel!
+    
+    @IBOutlet weak var Time: UILabel!
+    @IBOutlet weak var discripton: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
