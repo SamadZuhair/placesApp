@@ -6,8 +6,9 @@
 //
 
 import UIKit
-
 import RealmSwift
+import CoreLocation
+import MapKit
 class BookMarkViewController: UIViewController {
     let db = try! Realm()
     @IBOutlet weak var BookMarksTB: UITableView!
@@ -46,5 +47,26 @@ extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
         return ceil
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+            
+    
+        let latitude:CLLocationDegrees =  Places.shared.landmarks[indexPath.row].lot
+            let longitude:CLLocationDegrees =  Places.shared.landmarks[indexPath.row].lon
+            
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            //mapItem.name = "\(self.venueName)"
+            mapItem.openInMaps(launchOptions: options)
+            
+        
+    }
     
 }

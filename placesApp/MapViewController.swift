@@ -9,7 +9,9 @@ import UIKit
 import MapKit
 import CoreLocation
 import CoreLocationUI
+import RealmSwift
 class MapViewController: UIViewController {
+    let db = try! Realm()
     @IBOutlet weak var map: MKMapView!
     var location = CLLocationManager()
     override func viewDidLoad() {
@@ -46,6 +48,8 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locationLast = locations.last
         //make the center Of location
+        Places.shared.userLatitut = (locationLast?.coordinate.latitude)!
+        Places.shared.userLongigut = (locationLast?.coordinate.longitude)!
         let center = CLLocationCoordinate2D(latitude: (locationLast?.coordinate.latitude)!, longitude: (locationLast?.coordinate.longitude)!)
         //Make the current region and make the dont on screen
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))

@@ -13,5 +13,8 @@ class Places {
     
     var landmarks:Results<LandMark>!
     
+    var userLatitut :Double = 0.0
+    var userLongigut:Double = 0.0
+    
     private init() {}
 }

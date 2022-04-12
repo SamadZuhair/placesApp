@@ -34,6 +34,8 @@ let db = try! Realm()
         let newMark = LandMark()
         newMark.name = placeName.text!
         newMark.des = descripton.text!
+        newMark.lon = Places.shared.userLongigut
+        newMark.lot = Places.shared.userLatitut
         
         try! db.write({
             db.add(newMark)
