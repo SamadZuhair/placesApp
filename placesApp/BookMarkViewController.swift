@@ -21,6 +21,7 @@ class BookMarkViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         print(Places.shared.landmarks)
+        BookMarksTB.reloadData()
     }
     
     
@@ -28,14 +29,14 @@ class BookMarkViewController: UIViewController {
 
 extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locationa.count
+        return Places.shared.landmarks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ceil = BookMarksTB.dequeueReusableCell(withIdentifier: "PlacesCiel", for: indexPath) as! PlacesCiel
-        ceil.Name.text = "Iraq"
-        ceil.Time.text = "12/Nov"
-        ceil.discripton.text = "In baghdad"
+        ceil.Name.text = Places.shared.landmarks[indexPath.row].name
+        ceil.Time.text = DateFormatter.localizedString(from: Places.shared.landmarks[indexPath.row].time, dateStyle: .short, timeStyle: .short)
+        ceil.discripton.text = Places.shared.landmarks[indexPath.row].des
         return ceil
     }
     
