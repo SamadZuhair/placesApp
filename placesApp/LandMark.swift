@@ -6,11 +6,11 @@
 //
 
 import Foundation
-
-struct LandMark {
-    let name : String
-    let des:String
-    let lon : Double
-    let lot : Double
-    let time : Date = Date()
+import RealmSwift
+class LandMark : Object {
+    @objc dynamic var   name : String = ""
+    @objc dynamic var des:String = ""
+    @objc dynamic var lon : Double = 0.0
+    @objc dynamic var lot : Double = 0.0
+    @objc dynamic var time : Date = Date()
 }

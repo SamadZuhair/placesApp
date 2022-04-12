@@ -31,7 +31,10 @@ class popUpViewController: UIViewController {
         print("saving")
         dismiss(animated: true)
         
-        let newMark = LandMark(name: placeName.text!, des:descripton.text! , lon: 0.0, lot: 0.0)
+        let newMark = LandMark()
+        newMark.name = placeName.text!
+        newMark.des = descripton.text!
+        
         
         Places.shared.landmarks.append(newMark)
     }
