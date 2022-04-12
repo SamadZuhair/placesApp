@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+import RealmSwift
 class popUpViewController: UIViewController {
-
+let db = try! Realm()
     @IBOutlet weak var placeName: UITextField!
     @IBOutlet weak var descripton: UITextView!
     override func viewDidLoad() {
@@ -35,8 +35,10 @@ class popUpViewController: UIViewController {
         newMark.name = placeName.text!
         newMark.des = descripton.text!
         
+        try! db.write({
+            db.add(newMark)
+        })
         
-        Places.shared.landmarks.append(newMark)
     }
 
     //hey ishki im miss u to much very alot mooore than u know about me

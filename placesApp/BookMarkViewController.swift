@@ -7,11 +7,16 @@
 
 import UIKit
 
+import RealmSwift
 class BookMarkViewController: UIViewController {
+    let db = try! Realm()
     @IBOutlet weak var BookMarksTB: UITableView!
     var locationa = ["iQ", "RU" , "SU" , "IN"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        let landmarks = db.objects(LandMark.self)
+        
+        Places.shared.landmarks = landmarks 
         BookMarksTB.delegate = self
         BookMarksTB.dataSource = self
         // Do any additional setup after loading the view.
@@ -20,7 +25,7 @@ class BookMarkViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        print(Places.shared.landmarks)
+        print(Places.shared.landmarks!)
         BookMarksTB.reloadData()
     }
     

@@ -7,11 +7,11 @@
 
 import Foundation
 
-
+import RealmSwift
 class Places {
     static let shared = Places()
     
-    var landmarks:[LandMark] = []
+    var landmarks:Results<LandMark>!
     
     private init() {}
 }
