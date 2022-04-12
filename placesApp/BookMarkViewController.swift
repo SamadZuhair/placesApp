@@ -26,6 +26,7 @@ class BookMarkViewController: UIViewController {
     
     
 }
+//alos in TB andd the add the dissaper in APP 
 
 extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
