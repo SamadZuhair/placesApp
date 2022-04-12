@@ -69,4 +69,11 @@ extension BookMarkViewController : UITableViewDelegate , UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        try! db.write({
+            db.delete(Places.shared.landmarks[indexPath.row])
+        })
+        BookMarksTB.reloadData()
+    }
+    
 }
