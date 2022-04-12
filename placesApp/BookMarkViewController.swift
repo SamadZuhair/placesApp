@@ -18,6 +18,10 @@ class BookMarkViewController: UIViewController {
         BookMarksTB.register(UINib(nibName:"PlacesCiel" , bundle: nil), forCellReuseIdentifier: "PlacesCiel")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(Places.shared.landmarks)
+    }
     
     
 }

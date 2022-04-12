@@ -17,7 +17,7 @@ class popUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
     // MARK: - Navigation
 
@@ -30,11 +30,16 @@ class popUpViewController: UIViewController {
     @IBAction func save(_ sender: UIButton) {
         print("saving")
         dismiss(animated: true)
+        
+        let newMark = LandMark(name: placeName.text!, des:descripton.text! , lon: 0.0, lot: 0.0)
+        
+        Places.shared.landmarks.append(newMark)
     }
-    print ("I miss u ")
+
     //hey ishki im miss u to much very alot mooore than u know about me
     // im Back i love uuuuuu
     // :>>>>>>>>>>>>>. 3>>>>>>>>
 
+    
     
 }
